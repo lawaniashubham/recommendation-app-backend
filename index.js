@@ -1,6 +1,5 @@
 require('dotenv').config();
 
-
 const server = require("express")
 const mongoose = require("mongoose")
 const LearningModel = require("./src/models/learning/LearningModel")
@@ -13,7 +12,7 @@ const port = process.env.PORT;
 const databaseURL = process.env.DATABASE_URL;
 
 
-// ---------- Allow requests only from 'http://localhost:3000' ---> as our ui is hosted on local host : 3000
+// ---------- Allow requests only from 'http://localhost:3000' ---> as our UI is hosted on local host : 3000
 // without using cors ----> no external 
 // const corsOptions = {
 //     origin: 'http://localhost:3000',
@@ -52,7 +51,6 @@ app.get("/tourandtravel_recommendation", async(req,res) => {
 })
 
 // Connect to MongoDB
-// const mongoURI = 'mongodb+srv://admin:12shu@clustershubham.xq6fi1o.mongodb.net/node-api?retryWrites=true&w=majority'; // Replace with your MongoDB connection URI
 const mongoURI = databaseURL
 mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
